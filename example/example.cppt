@@ -1,0 +1,10 @@
+#define table_row(user, account) "<tr><td>" user "</td><td>" #account "</td></tr>"
+
+#define users(x)                              \
+    x("Jesus", 100)                           \
+    x("Alice", 17)                            \
+    x("Max", -3)                              \
+
+#define table users(table_row)
+
+char* html = table;
