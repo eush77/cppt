@@ -40,6 +40,30 @@ And here is what the template itself looks like:
 #define table_row(user, age) t("tr", "", t("td", "", user) t("td", "", #age)) "\n"
 ```
 
+## Preprocessor templates
+
+Cppt template files must `#define` the `html` symbol as a string - the result of applying the template.
+
+A few primitives are built in.
+
+### `t(tag, attributes, content)`
+
+Creates a tag with given attributes and content.
+
+### `a(key, value)`
+
+Creates an attribute. Can be combined with other attributes to form the `attributes` string containing all of them.
+
+## CLI
+
+```
+Usage:  cppt [-D<definition>]... <TEMPLATE
+```
+
+Definitions have to be in exactly the same format as described in GCC(1).
+
+Note: to pass a sequence of objects, you create a definition that accepts another macro, applies it to each object in a sequence and then concatenates the results. See the example.
+
 ## License
 
 MIT
