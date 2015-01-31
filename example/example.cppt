@@ -1,10 +1,10 @@
-#define table_row(user, account) t("tr", "", t("td", "", user) t("td", "", #account))
+#define table_row(user, age) t("tr", "", t("td", "", user) t("td", "", #age))
 
-#define users(x)                              \
-    x("Jesus", 100)                           \
-    x("Alice", 17)                            \
-    x("Max", -3)                              \
+#define users(x)                               \
+    x("Jesus", 2015)                           \
+    x("Alice", 17)                             \
+    x("Max", -1)                               \
 
-#define table t("table", a("class", "my-table") a("id", "my-table"), users(table_row))
+#define table t("table", a("class", "users") a("id", "my-table"), users(table_row))
 
 #define html table
