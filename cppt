@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $# -eq 1 && $1 == "--help" ]]; then
+    printf "Usage:  cppt <TEMPLATE\n"
+    exit
+fi
+
+compiled=$(mktemp)
+cat - driver.c |gcc -xc - -o $compiled
+$compiled
+rm $compiled
