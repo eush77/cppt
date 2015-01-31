@@ -1,14 +1,14 @@
-TARGET = example
+TEMPLATE = example.cppt
+TEMPLATE_BIN = $(TEMPLATE:.cppt=)
+DRIVER = ../driver.c
+INCLUDE_TARGET = template.cppt
+BUILD_DIR = build
 
-$(TARGET): $(TARGET).o driver.o
-	gcc $^ -o $@
-
-$(TARGET).o: $(TARGET).cppt
-	gcc -xc -c $< -o $@
-
-driver.o: ../driver.c
-	gcc -xc -c $< -o $@
+$(TEMPLATE_BIN): $(TEMPLATE) $(DRIVER)
+	mkdir -p $(BUILD_DIR)
+	ln -fs ../$(TEMPLATE) $(BUILD_DIR)/$(INCLUDE_TARGET)
+	gcc -I $(BUILD_DIR) $(DRIVER) -o $@
 
 .PHONY: clean
 clean:
-	-rm -v *.o $(TARGET)
+	-rm -rv $(BUILD_DIR) $(TEMPLATE_BIN)

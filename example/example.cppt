@@ -7,4 +7,4 @@
 
 #define table users(table_row)
 
-char* html = table;
+#define html table

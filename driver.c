@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern char* html;
+#include "template.cppt"
 
 int main() {
     fputs(html, stdout);
