@@ -1,5 +1,10 @@
-#define table_row(user, age) t("tr", "", t("td", "", user) t("td", "", #age))
+#define html doctype t("html", "", head body)
+#define doctype "<!doctype html>\n"
 
-#define table t("table", a("class", "users") a("id", "my-table"), users(table_row))
+#define head "\n" t("head", "", title)
+#define title t("title", "", TITLE)
 
-#define html table
+#define body "\n" t("body", "", h1 table) "\n"
+#define h1 "\n" t("h1", "", "Users:")
+#define table "\n" t("table", a("class", "users") a("id", "my-table"), "\n" USERS(table_row)) "\n"
+#define table_row(user, age) t("tr", "", t("td", "", user) t("td", "", #age)) "\n"
