@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [[ $# -eq 1 && $1 == "--help" ]]; then
-    printf "Usage:  cppt <TEMPLATE\n"
+    printf "Usage:  cppt [-D<definition>]... <TEMPLATE\n"
     exit
 fi
 
 compiled=$(mktemp)
-(cat - driver.c |gcc -xc - -o $compiled) && $compiled
+(cat - driver.c |gcc -xc $@ - -o $compiled) && $compiled
 rm $compiled
