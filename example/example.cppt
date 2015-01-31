@@ -9,5 +9,8 @@
 
 #define body t("body", "", h1 table)
 #define h1 "\n" t("h1", "", "Users:")
-#define table "\n" t("table", a("class", "users") a("id", "my-table"), "\n" USERS(table_row)) "\n"
-#define table_row(user, age) t("tr", "", t("td", "", user) t("td", "", #age)) "\n"
+#define table "\n" t("table",                                           \
+                     a("class", "users") a("id", "my-table"),           \
+                     "\n" USERS(table_row)) "\n"
+#define table_row(user, age) t("tr", "",                                \
+                               t("td", "", user) t("td", "", #age)) "\n"
