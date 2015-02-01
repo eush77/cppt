@@ -1,5 +1,7 @@
 # cppt
 
+![status|proof of concept](https://img.shields.io/badge/status-proof_of_concept-lightgrey.svg?style=flat-square)
+
 Write templates in C preprocessor language.
 
 ## Example
