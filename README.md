@@ -76,6 +76,10 @@ Definitions have to be in exactly the same format as described in GCC(1).
 
 Note: to pass a sequence of objects, you create a definition that accepts another macro, applies it to each object in a sequence and then concatenates the results. See the example.
 
+## Dependencies
+
+- GCC
+
 ## License
 
 MIT
