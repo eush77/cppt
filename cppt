@@ -5,6 +5,26 @@ if [[ $# -eq 1 && $1 == "--help" ]]; then
     exit
 fi
 
+
+# Recursively resolve a symbolic link.
+# Usage:  resolve-link LINK
+function resolve-link {
+    path=$0
+    next=$(readlink "$path")
+    while [[ $? -eq 0 ]]; do
+        if [[ ${next:0:1} == "/" ]]; then
+            # Absolute link.
+            path=$next
+        else
+            # Relative link.
+            path=$(dirname "$path")/$next
+        fi
+        next=$(readlink "$path")
+    done
+    echo $path
+}
+
+
+cd $(dirname $(resolve-link $0))
 compiled=$(mktemp)
-(cat - driver.c |gcc -xc $@ - -o $compiled) && $compiled
-rm $compiled
+(cat - driver.c |gcc -xc $@ - -o $compiled) && $compiled && rm $compiled
