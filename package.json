@@ -1,0 +1,42 @@
+{
+  "name": "cppt",
+  "version": "0.0.2",
+  "description": "C preprocessor as a template engine",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "cppt": "cppt"
+  },
+  "files": [
+    "cppt",
+    "cppt.h",
+    "driver.c"
+  ],
+  "homepage": "https://github.com/eush77/cppt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eush77/cppt"
+  },
+  "bugs": {
+    "url": "https://github.com/eush77/cppt/issues"
+  },
+  "keywords": [
+    "cppt",
+    "template",
+    "templating",
+    "preprocessor",
+    "macros",
+    "define",
+    "macro",
+    "c",
+    "c++",
+    "header",
+    "gcc",
+    "compiler",
+    "silly",
+    "poc"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
