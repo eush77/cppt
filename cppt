@@ -21,10 +21,10 @@ function resolve-link {
         fi
         next=$(readlink "$path")
     done
-    echo $path
+    echo "$path"
 }
 
 
-cd $(dirname $(resolve-link $0))
-compiled=$(mktemp)
-(cat - driver.c |gcc -xc $@ - -o $compiled) && $compiled && rm $compiled
+cd "$(dirname "$(resolve-link "$0")")"
+compiled="$(mktemp)"
+(cat - driver.c |gcc -xc "$@" - -o "$compiled") && "$compiled" && rm "$compiled"
